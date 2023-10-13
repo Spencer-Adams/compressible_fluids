@@ -107,7 +107,6 @@ class nozzle_solver:
 
     def calc_is_choked(self):
         """This function checks if the throat is choked using mass flow rates"""
-        # if throat is not choked, then Po_e = Po
         first = 2/(self.gamma - 1)
         second = (self.P_o/self.P_e)
         exponent = (self.gamma - 1)/self.gamma

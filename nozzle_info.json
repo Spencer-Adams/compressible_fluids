@@ -1,6 +1,6 @@
 {
     "nozzle_points": "nozzle_profile.txt",
-    "gamma": 1.22,
+    "gamma": 1.20,
     "P_e" : 16.8727,
     "P_o" : 20.4,
     "T_o" : 3500,
