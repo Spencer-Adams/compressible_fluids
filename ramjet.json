@@ -1,0 +1,13 @@
+{
+    "gamma": 1.40,
+    "P_e" : 16.8727,
+    "P_inf" : 12.0,
+    "P_o_2" : 0.5,
+    "T_inf" : 2000,
+    "m_weight" : 28.96443,
+    "diffuser_exp_ratio" : 1.3836268,
+    "nozzle_exp_ratio" : 4.0,
+    "A_t" : 0.30,
+    "A_e" : 23.256,
+    "end_epsilon" : 1e-8
+ }
