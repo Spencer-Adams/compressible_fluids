@@ -1,0 +1,10 @@
+{
+    "M_inf": 1.7,
+    "gamma": 1.4,
+    "one_ATM" : 101325,
+    "P_inf" : 0.26,
+    "T_inf" : 223,
+    "theta" : 15,
+    "r" : 0.4,
+    "end_epsilon" : 1e-8
+ }

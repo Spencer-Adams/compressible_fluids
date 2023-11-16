@@ -94,7 +94,14 @@ class pitot_rayleigh:
     def run_solver(self):
         """When called, this function runs all the needed functions to complete HW 4, problem 2"""
         self.calc_machs()
-        print("mach numbers:", self.machs)
+        for i in range(len(self.machs)):
+            print("\n")
+            print(" P_o_2:", self.P_o_2[i])
+            print(" P_inf:", self.P_inf[i])
+            print(" Mach:", self.machs[i])
+            print("\n")
+            
+        # print("mach numbers:", self.machs)
         
 
 if __name__ == "__main__":
