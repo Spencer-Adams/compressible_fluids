@@ -1,0 +1,16 @@
+{
+    "gamma": 1.40,
+    "P_inf" : [30454],
+    "P_o_2" : [143062],
+    "end_epsilon" : 1e-3,
+    "half_wedge[deg]": 10.0,
+    "alpha" : 12.0,
+    "M1_start_guess" : 2.3,
+    "M_crit_start_guess" : 0.9,
+    "Xfoil_cpo" : -0.94,
+    "unswept_thickness" : 0.12,
+    "sweep[deg]" : 30,
+    "alpha_2[deg]" : 1.5,
+    "alphas" : [0,1,2,3,4,5],
+    "CPos" : [0.0, -0.01, -0.15, -0.55, -1.1, -1.9]
+ }

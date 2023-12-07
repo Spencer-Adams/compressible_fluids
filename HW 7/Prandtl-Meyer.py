@@ -63,6 +63,21 @@ class Prandtl_Meyer:
         return m_j
     
     
+    def backward_newton_solver(self, m_j):
+        """This function numerically solves for the mach number given the"""
+        epsilon = 10 #arbitrary placeholder
+        while epsilon >= self.end_epsilon:
+            v_m_j = self.calc_v_M2(m_j)
+            del_v_del_Mj = self.calc_del_v_M2(m_j)
+            delta = ((np.radians(20) + v_m_j - 1.8) /del_v_del_Mj) 
+            m_j = m_j + delta
+            # print("m_j",m_j)
+            epsilon = abs(delta)
+            # print("epsilon", epsilon)
+        back_m2 = m_j
+        return back_m2
+    
+    
     def calc_mu_2(self):
         """This function solves for mu_2 given M_2"""
         self.mu_2 = np.arcsin(1/self.M_2)
@@ -184,6 +199,10 @@ class Prandtl_Meyer:
         else:
             print("Can't find M_2 for a non supersonic M_1 because expansion fans only exist in supersonic flows")
         print("\nM2:\n", M_2, "\n")
+
+        self.backward_newton_solver(1.8)
+        print("backwards_m_2")
+
         self.calc_mu_2()
         print("\nmu_2:\n", np.degrees(self.mu_2), "degrees\n")
         self.calc_exit_mach_wave_angle()
