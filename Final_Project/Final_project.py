@@ -320,7 +320,7 @@ class Double_wedge:
 
     def calc_CD_inviscid(self, half_wedge, alpha, M_inf, P1, P2, P4, P3, P5, gamma):
         
-        coeff = (1/(2*np.cos(gamma)))*(1/((gamma/2)*M_inf**2))
+        coeff = (1/(2*np.cos(half_wedge)))*(1/((gamma/2)*M_inf**2))
         first = ((P2/P1)-(P5/P1))*np.sin(half_wedge+alpha)
         second = ((P3/P1)-(P4/P1))*np.sin(half_wedge-alpha)
         CD = coeff*(first + second)
@@ -329,7 +329,7 @@ class Double_wedge:
 
     def calc_CL_inviscid(self, half_wedge, alpha, M_inf, P1, P2, P4, P3, P5, gamma):
 
-        coeff = (1/(2*np.cos(gamma)))*(1/((gamma/2)*M_inf**2))
+        coeff = (1/(2*np.cos(half_wedge)))*(1/((gamma/2)*M_inf**2))
         first = ((P2/P1)-(P5/P1))*np.cos(half_wedge+alpha)
         second = ((P4/P1)-(P3/P1))*np.cos(half_wedge-alpha)
         CL = coeff*(first + second)
@@ -391,8 +391,9 @@ class Double_wedge:
             L_over_D = inviscid_CL_wing/(inviscid_CD_wing + Cdfric*correction)
 
         elif type == "laminar":
-            Cdfric = 1.328/np.sqrt(Re)
-            Tavg = Tstat_before*(1+(1-(8/15))*((gamma-1)/2)*Minf**2)
+            Cdfric = 1.328/np.sqrt(Re)*2/np.cos(self.half_wedge)
+            # Tavg = Tstat_before*(1+(1-(8/15))*((gamma-1)/2)*Minf**2)
+            Tavg = Tstat_before + (1-(8/15))*(Tstat_before*Minf**2/(2*(1/(gamma-1))))
             correction = 1/np.sqrt((Tstat_before/Tavg)**(5/2)/((Tstat_before + 120)/(Tavg + 120)))
             L_over_D = inviscid_CL_wing/(inviscid_CD_wing + Cdfric*correction)
 
@@ -465,10 +466,10 @@ if __name__ == "__main__":
     plt.figure()
 
 
-
     ## Problem 3, part a
     ### Here is the turbulent part 
     Machs_part_2_a = np.array([2,5,10]) 
+    altitudes = [10, 20, 30, 40, 50]
     alphas = np.radians(np.linspace(0,15,45))
     L_over_D_alpha = []
     alpha = []
@@ -624,7 +625,6 @@ if __name__ == "__main__":
     # plt.gca().set_aspect('equal')
     plt.title("P4 pt.b) L/D Max w.r.t mach number")
     plt.legend()
-
     plt.show()
 
 

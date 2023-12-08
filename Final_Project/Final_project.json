@@ -1,6 +1,6 @@
 {
     "Standard_Atm" : "US_Standard_Atmosphere.txt",
-    "half_wedge" : 5,
+    "half_wedge" : 2,
     "end_epsilon" : 1e-8, 
     "chord[m]" : 2
     
